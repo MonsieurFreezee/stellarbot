@@ -2,6 +2,7 @@ package fr.monsieurfreezee.stellarbot.listeners;
 
 import fr.monsieurfreezee.stellarbot.Bot;
 import net.dv8tion.jda.core.events.Event;
+import net.dv8tion.jda.core.events.message.GenericMessageEvent;
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.EventListener;
 
@@ -18,13 +19,19 @@ public class ListenerManager implements EventListener {
 
     @Override
     public void onEvent(Event event) {
+        if (event instanceof GenericMessageEvent) {
+            GenericMessageEvent e = (GenericMessageEvent) event;
+            if (e.getAuthor() == Bot.jda.getSelfUser()) {
+                return;
+            }
+        }
+
         if (event instanceof MessageReceivedEvent) {
             MessageReceivedEvent e = (MessageReceivedEvent) event;
             if (e.getAuthor() == Bot.jda.getSelfUser()) {
                 return;
             }
         }
-
         for (EventListener listener: listeners) {
             listener.onEvent(event);
         }
