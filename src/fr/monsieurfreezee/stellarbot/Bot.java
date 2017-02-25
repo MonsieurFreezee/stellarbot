@@ -13,14 +13,13 @@ import net.dv8tion.jda.core.entities.Guild;
 import net.dv8tion.jda.core.exceptions.RateLimitedException;
 
 import javax.security.auth.login.LoginException;
-import java.io.IOException;
 
 public class Bot {
 
     public static Guild stellarGuild;
     public static JDA jda;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         try {
             jda = new JDABuilder(AccountType.BOT)
                     .setToken(args[0]) // Bot token must be put in program arguments
@@ -52,7 +51,5 @@ public class Bot {
 
         // Static initialization
         new CommandsRegisterer();
-
-        // Words list initialization
     }
 }
