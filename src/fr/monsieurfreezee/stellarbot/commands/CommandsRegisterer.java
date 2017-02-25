@@ -1,7 +1,8 @@
 package fr.monsieurfreezee.stellarbot.commands;
 
 import fr.monsieurfreezee.stellarbot.commands.argumentscommands.ArgumentCommand;
-import fr.monsieurfreezee.stellarbot.commands.argumentscommands.list.Slap;
+import fr.monsieurfreezee.stellarbot.commands.argumentscommands.list.Whip;
+import fr.monsieurfreezee.stellarbot.commands.argumentscommands.list.WordDetails;
 import fr.monsieurfreezee.stellarbot.commands.fastcommands.FastCommand;
 import fr.monsieurfreezee.stellarbot.commands.fastcommands.list.*;
 
@@ -22,7 +23,8 @@ public class CommandsRegisterer {
         fastCommands.add(new Ping());
 
         // Argument commands:
-        argumentCommands.add(new Slap());
+        argumentCommands.add(new Whip());
+        argumentCommands.add(new WordDetails());
     }
 
     public static ArrayList<FastCommand> getFastCommands() {
